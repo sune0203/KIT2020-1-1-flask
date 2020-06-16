@@ -1,4 +1,7 @@
 from flask import Flask, request, render_template, redirect,url_for,abort
+
+import game
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -11,7 +14,8 @@ def hello():
 
 @app.route('/hello/<name>')
 def hellovar(name):
-    return 'Hello, {}!'.format(name)
+    character = game.set_charact(name)
+    return "{0}님 반갑습니다. (HP {1})으로 게임을 시작 합니다".format(character["name"], character["hp"])
 
 @app.route('/input/<int:num>')
 def input_name(num):
