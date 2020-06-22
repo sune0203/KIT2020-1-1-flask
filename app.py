@@ -27,11 +27,11 @@ def gamestart():
     return "{} 이 {}아이템을 사용 해서 이겼다.".format(character["name"], character["items"][0])
 
 @app.route('/input/<int:num>')
-def input_name(num):
-    if num == 1:
+def input_num(num):
+    if num ==1:
         with open("static/save.txt", "r", encoding='utf-8') as f:
             data = f.read()
-            character = json.loads(data)
+            character=json.loads(data)
             print(character['items'])
         return "{} 이 {}아이템을 사용 해서 이겼다.".format(character["name"], character["items"][0])
     elif num ==2:
