@@ -18,6 +18,12 @@ def hellovar(name):
     character = game.set_charact(name)
     return render_template('gamestart.html',data=character)
 
+@app.route('/senddata') 
+def senddata(): 
+    name = 'world' 
+    return render_template('senddata.html', data=name)
+
+
 @app.route('/gamestart')
 def gamestart():
     with open("static/save.txt", "r", encoding='utf-8') as f:
