@@ -1,17 +1,24 @@
+def aa(name):
+    return name
+
+import json
+
 def set_charact(name):
     character = {
         "name": name,
         "level": 1,
         "hp": 100,
-        "items":["체력포션", "마나포션", "뇌물"],
-        "skill":["주먹질","도발","발차기"]
+        "items": ["대나무헬리콥터", "빅라이트", "어디로든 문"],
+        "skill": ["펀치", "핵펀치", "피하기"]
     }
-    print("{0}님 반갑습니다. (HP {1})으로 게임을 시작 합니다".format(character["name"], character["hp"]))
+    with open("static/save.txt", "w", encoding='utf-8') as f:
+        json.dump(character, f, ensure_ascii= False, indent=4) 
+    print("님 반갑습니다.", "(HP {1})으로 게임을 합니다." .format(character["name"], character["hp"]))
     return character
 
 def save_game(filename, charact):
-    f = open("save.txt", "w", encoding="utf-8")
+    f = open(filename, "w", encoding="utf-8")
     for key in charact:
         print("%s:%s" % (key, charact[key]))
-        f.write("%s:%s\n" % (key, charact[key]))
+        f.write("%s:%s\n" % (key,charact[key]))
     f.close()

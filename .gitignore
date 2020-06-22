@@ -4,7 +4,8 @@
 ### Codeio ###
 .codio
 
-
+## 게임 save.txt ##
+save.txt
 ###myenv ###
 myenv/
 ### Flask ###
